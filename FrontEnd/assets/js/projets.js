@@ -22,9 +22,6 @@ async function createGallery(element) {
 	contentImg.src = element.imageUrl;
 	contentTitle.innerHTML = element.title;
 
-	// test
-	contentDiv.dataset.categorie = element.categoryId;
-
 	// Assignation des balises
 	gallery.appendChild(contentDiv);
 	contentDiv.appendChild(contentImg);
