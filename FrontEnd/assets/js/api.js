@@ -1,5 +1,5 @@
 // Adresse de l'API
-export const urlApi = "http://localhost:5678/api";
+const urlApi = "http://localhost:5678/api";
 
 // Fonction de récuperation des traveaux
 export async function getWorks() {
@@ -10,5 +10,17 @@ export async function getWorks() {
 		return data;
 	} catch (error) {
 		console.log("Impossible de joindre le serveur :(");
+	}
+}
+
+// Fonction de récuperation des catégories
+export async function getCategory() {
+	try {
+		const response = await fetch(`${urlApi}/categories`);
+		const data = await response.json();
+		console.log("Catégories chargé, c'est bon :)");
+		return data;
+	} catch (error) {
+		console.log("Impossible de joindre le serveur (catégories) :(");
 	}
 }

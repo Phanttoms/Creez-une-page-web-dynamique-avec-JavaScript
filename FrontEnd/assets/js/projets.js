@@ -1,5 +1,5 @@
 // Import
-import { getWorks } from "./api.js";
+import { getWorks, getCategory } from "./api.js";
 
 // Création du HTML "Mes Projets"
 export async function projectCollect() {
