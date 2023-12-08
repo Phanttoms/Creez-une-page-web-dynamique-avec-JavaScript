@@ -133,6 +133,7 @@ body {
 	margin: auto;
 	font-family: "Work Sans";
 	font-size: 14px;
+	background-color: #fffef8;
 }
 header {
 	display: flex;
@@ -172,6 +173,11 @@ nav ul {
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
+}
+
+nav a {
+	text-decoration: none;
+	color: inherit;
 }
 
 li:hover {
