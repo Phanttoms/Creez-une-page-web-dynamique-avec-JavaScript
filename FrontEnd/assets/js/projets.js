@@ -1,5 +1,5 @@
 // Import
-import { getWorks, getCategory } from "./api.js";
+import { getWorks } from "./api.js";
 
 // Création du HTML "Mes Projets"
 export async function projectCollect() {
@@ -21,6 +21,9 @@ async function createGallery(element) {
 	contentDiv.classList.add("work");
 	contentImg.src = element.imageUrl;
 	contentTitle.innerHTML = element.title;
+
+	// Ajout ID contentDiv
+	contentDiv.dataset.categorie = element.categoryId;
 
 	// Assignation des balises
 	gallery.appendChild(contentDiv);

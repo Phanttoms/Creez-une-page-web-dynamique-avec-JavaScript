@@ -262,3 +262,32 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em;
 }
+
+/* Filtres */
+.filters {
+	display: flex;
+	justify-content: center;
+}
+
+.buttonFilter {
+	height: 2.3rem;
+	border-radius: 3.75rem;
+	border: 1px solid #1d6154;
+	background: #fffef8;
+	cursor: pointer;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	text-align: center;
+	color: #1d6154;
+	margin-bottom: 3rem;
+	margin-left: 0.7rem;
+	font-family: "Syne", sans-serif;
+	padding: 0.5rem 1.8rem 0.5rem 1.8rem;
+}
+
+.buttonFilter:hover {
+	background-color: #1d6154;
+	color: #fff;
+}
