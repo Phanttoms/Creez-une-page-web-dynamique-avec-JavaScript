@@ -180,6 +180,10 @@ nav a {
 	color: inherit;
 }
 
+.login {
+	font-weight: 600;
+}
+
 li:hover {
 	color: #b1663c;
 }
