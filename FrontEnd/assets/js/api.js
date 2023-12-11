@@ -26,10 +26,16 @@ export async function getCategory() {
 }
 
 // Fonction Login
-// export async function getLogin() {
-// 	try {
-// 		const response = await fetch(`${urlApi}/users/login`);
-// 	} catch (error) {
-// 		console.log("Impossible de joindre le serveur (user)");
-// 	}
-// }
+export async function getUser() {
+	const response = await fetch("http://localhost:5678/api/users/login", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			Accept: "application/json",
+		},
+		body: JSON.stringify({
+			email: email,
+			password: password,
+		}),
+	});
+}
