@@ -180,10 +180,6 @@ nav a {
 	color: inherit;
 }
 
-.login {
-	font-weight: 600;
-}
-
 li:hover {
 	color: #b1663c;
 }
@@ -300,4 +296,47 @@ footer nav ul {
 .buttonFilter:hover {
 	background-color: #1d6154;
 	color: #fff;
+}
+
+/*----- Page de Connection -----*/
+.login {
+	font-weight: 600;
+}
+
+/* Formulaire de Connection */
+.form-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 9rem 0 18rem 0;
+}
+
+.form-container a {
+	color: inherit;
+}
+
+#formContent {
+	display: flex;
+	flex-direction: column;
+	width: 35%;
+}
+
+#formContent label {
+	margin-top: 2rem;
+}
+
+.input-content {
+	margin-top: 0.5rem;
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.form-button {
+	width: 11.1875rem;
+	height: 2.25rem;
+	border: none;
+	cursor: pointer;
 }

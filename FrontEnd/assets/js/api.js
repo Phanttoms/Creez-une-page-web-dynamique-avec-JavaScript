@@ -24,3 +24,23 @@ export async function getCategory() {
 		console.log("Impossible de joindre le serveur (catégories) :(");
 	}
 }
+
+// Fonction Login
+// export async function getLogin(email, password) {
+// 	try {
+// 		const response = await fetch(`${urlApi}/users/login`, {
+// 			method: "POST",
+// 			headers: {
+// 				"Content-Type": "application/json",
+// 			},
+// 			body: JSON.stringify({
+// 				email,
+// 				password,
+// 			}),
+// 		});
+// 		console.log("Serveur (Users/Login) fonctionnel");
+// 		return response; // retourne la réponse de l'api
+// 	} catch (error) {
+// 		console.log("Impossible de joindre le serveur (Users/Login)");
+// 	}
+// }
