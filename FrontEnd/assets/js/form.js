@@ -1,60 +1,56 @@
-// Handle form datas
-let inputEmail = document.getElementById("email");
-let inputPassword = document.getElementById("password");
-let loginForm = document.getElementById("formContent");
-let errorMessageContainer = document.querySelector(".error-message");
-let errorMessage = "Email et/ou mot de passe invalide(s)";
+/**** LOGIN PAGE ****/
 
-// Validate email function
-function validateEmail(userMail) {
-	let regexEmail = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+");
-	return regexEmail.test(userMail);
-}
+const header = document.querySelector("header");
+header.classList.add("header-logout");
 
-// Validate password function
-function validatePassword(userPassword) {
-	return userPassword !== "";
-}
+const form = document.getElementById("formContent");
+form.addEventListener("submit", submitForm);
 
-async function redirection(token) {
-	window.sessionStorage.setItem("token", token);
-}
-
-// Sending datas function
-async function sendingDatas(datas) {
-	try {
-		const response = await fetch("http://localhost:5678/api/users/login", {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: datas,
-		});
-		const result = await response.json();
-		if (!response.ok) {
-			errorMessageContainer.innerText = errorMessage;
-			throw new Error("Erreur de traitement fetch");
-		} else {
-			redirection(result.token).then((window.location.href = "./index.html"));
-		}
-	} catch (error) {
-		console.error(error);
-	}
-}
-
-// Validate datas from form and submission
-loginForm.addEventListener("submit", (event) => {
+// Function to submit the form
+async function submitForm(event) {
 	event.preventDefault();
-	let userMail = inputEmail.value;
-	let userPassword = inputPassword.value;
 
-	if (validateEmail(userMail) && validatePassword(userPassword)) {
-		errorMessageContainer.innerText = "";
-		let data = {
-			email: userMail,
-			password: userPassword,
-		};
-		sendingDatas(JSON.stringify(data));
-	} else {
-		console.log("error datas form");
-		errorMessageContainer.innerText = errorMessage;
+	try {
+		// POST request to send data to the API
+		const url = "http://localhost:5678/api/users/login";
+		const response = await fetch(url, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				email: email.value,
+				password: password.value,
+			}),
+		});
+
+		const responseData = await response.json();
+
+		// Check the server response status code
+		if (response.status === 200) {
+			const token = responseData.token;
+
+			// Registration of the token and redirection to the home page
+			window.localStorage.setItem("token", token);
+			window.location.href = "./index.html";
+			// Display of different error messages depending on the code received
+		} else if (response.status === 401) {
+			displayErrorMessage(
+				"L'email ou et le mot de passe n'est pas valide.<br>La connexion n'est pas autorisée !!!",
+				"#error"
+			);
+		} else if (response.status === 404) {
+			displayErrorMessage(
+				"L'utilisateur ne se trouve pas dans la base de données.",
+				"#error"
+			);
+		}
+
+		// Display an error message if no connection to the server
+	} catch (error) {
+		displayErrorMessage(
+			"Une erreur est survenue lors de la connexion.<br>Veuillez réessayer plus tard.",
+			"#error"
+		);
 	}
-});
+}
