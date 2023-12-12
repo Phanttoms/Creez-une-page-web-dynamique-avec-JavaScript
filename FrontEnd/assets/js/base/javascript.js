@@ -1,5 +1,4 @@
 // Imports
-// import { getWorks, getCategory } from "./api.js";
 import { projectCollect } from "./projets.js";
 import { categorieCollect } from "./filter.js";
 
