@@ -309,7 +309,7 @@ footer nav ul {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin: 9rem 0 18rem 0;
+	margin: 9rem 0 9rem 0;
 }
 
 .form-container a {
@@ -339,4 +339,12 @@ footer nav ul {
 	height: 2.25rem;
 	border: none;
 	cursor: pointer;
+}
+
+/* test */
+.error {
+	color: #d65353;
+	font-size: 1rem;
+	margin-top: 1em;
+	text-align: center;
 }
