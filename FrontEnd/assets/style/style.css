@@ -178,6 +178,7 @@ nav li {
 nav a {
 	text-decoration: none;
 	color: inherit;
+	cursor: pointer;
 }
 
 li:hover {
@@ -294,6 +295,11 @@ footer nav ul {
 }
 
 .buttonFilter:hover {
+	background-color: #1d6154;
+	color: #fff;
+}
+
+.buttonFilter-active {
 	background-color: #1d6154;
 	color: #fff;
 }

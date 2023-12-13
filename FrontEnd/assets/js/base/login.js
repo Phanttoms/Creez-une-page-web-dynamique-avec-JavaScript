@@ -27,7 +27,7 @@ async function login(email, password) {
 			errorMessage.textContent = "Mot de passe incorrect.";
 			console.log(`Erreur: ${response.status} !`);
 		} else if (response.status === 404) {
-			errorMessage.textContent = "Identifiant incorrect.";
+			errorMessage.textContent = "E-Mail incorrect.";
 			console.log(`Erreur: ${response.status} !`);
 		} else {
 			console.log(`Erreur: ${response.status} !`);

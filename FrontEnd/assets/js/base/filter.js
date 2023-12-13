@@ -19,6 +19,7 @@ async function createButton(title, categoryId) {
 async function handleFilters(categoryId) {
 	let allWorks = document.querySelectorAll(".work");
 	console.log("Voila l'ID des filtres: " + categoryId);
+	let buttonColor = document.querySelectorAll(".buttonFilter");
 
 	allWorks.forEach((oneWork) => {
 		if (
@@ -30,8 +31,20 @@ async function handleFilters(categoryId) {
 			oneWork.style.display = "none";
 		}
 	});
-}
 
+	buttonColor.forEach((button, index) => {
+		const tous = buttonColor[0];
+		if (index === categoryId) {
+			console.log("yeah");
+			button.className += " buttonFilter-active";
+		} else if (categoryId === "") {
+			tous.className += " buttonFilter-active";
+			button.className = "buttonFilter";
+		} else {
+			button.className = "buttonFilter";
+		}
+	});
+}
 // Fonction
 export async function categorieCollect() {
 	getCategory().then((categories) => {
