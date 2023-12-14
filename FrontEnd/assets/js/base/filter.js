@@ -32,10 +32,10 @@ async function handleFilters(categoryId) {
 		}
 	});
 
+	// Changement de couleur de fond des boutons cliqué
 	buttonColor.forEach((button, index) => {
 		const tous = buttonColor[0];
 		if (index === categoryId) {
-			console.log("yeah");
 			button.className += " buttonFilter-active";
 		} else if (categoryId === "") {
 			tous.className += " buttonFilter-active";

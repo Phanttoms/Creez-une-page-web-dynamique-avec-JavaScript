@@ -2,6 +2,19 @@
 import { projectCollect } from "./projets.js";
 import { categorieCollect } from "./filter.js";
 
+// // Récuperation du token
+// const token = localStorage.getItem("token");
+
+// // Appel de la page en fonction du Token
+// if (token === true) {
+// 	projectCollect();
+// 	console.log("token true");
+// } else {
+// 	console.log("token false");
+// 	projectCollect();
+// 	categorieCollect();
+// }
+
 // Appel de la fonction de creation de "Mes Projets"
 projectCollect();
 

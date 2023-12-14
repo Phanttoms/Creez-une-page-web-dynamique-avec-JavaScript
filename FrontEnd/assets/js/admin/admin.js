@@ -1,15 +1,16 @@
+// Récuperation d'élément
 const token = localStorage.getItem("token");
 
 // Mise a jour du boutton de Login en fonction du token de connection
 const isLogged = () => (token ? true : false);
 
-const logOut = () => {
+function logOut() {
 	localStorage.clear("token");
 	console.log("disconnected");
 	window.location.reload();
-};
+}
 
-const loginButtonUpdate = () => {
+async function loginButtonUpdate() {
 	const loginButton = document.querySelector("#loginButton");
 	if (isLogged()) {
 		loginButton.href = "#";
@@ -19,9 +20,10 @@ const loginButtonUpdate = () => {
 			loginButton.innerText = "login";
 		});
 	}
-};
+}
 
+// Listener de lancement des fonctions ADMIN
 window.addEventListener("load", () => {
 	loginButtonUpdate();
-	// updateUI();
+	// updateUI() Fonction pour mettre a jour l'interface par rapport au token utilisateur
 });
