@@ -5,10 +5,14 @@ import { getCategory } from "./api.js";
 const filters = document.querySelector(".filters");
 
 // Fonction de création des 3 boutons
-async function createButton(title, categoryId) {
+async function createButton(title, categoryId, active) {
 	const buttonCategory = document.createElement("button");
 	buttonCategory.textContent = title;
 	buttonCategory.classList.add("buttonFilter");
+
+	if (active) {
+		buttonCategory.classList.add("buttonFilter-active");
+	}
 
 	buttonCategory.addEventListener("click", () => handleFilters(categoryId));
 
@@ -23,7 +27,7 @@ async function handleFilters(categoryId) {
 
 	allWorks.forEach((oneWork) => {
 		if (
-			categoryId === "" ||
+			categoryId === 0 ||
 			oneWork.dataset.categorie === categoryId.toString()
 		) {
 			oneWork.style.display = "block";
@@ -34,12 +38,8 @@ async function handleFilters(categoryId) {
 
 	// Changement de couleur de fond des boutons cliqué
 	buttonColor.forEach((button, index) => {
-		const tous = buttonColor[0];
 		if (index === categoryId) {
 			button.className += " buttonFilter-active";
-		} else if (categoryId === "") {
-			tous.className += " buttonFilter-active";
-			button.className = "buttonFilter";
 		} else {
 			button.className = "buttonFilter";
 		}
@@ -50,9 +50,9 @@ export async function categorieCollect() {
 	getCategory().then((categories) => {
 		categories.forEach((category, index) => {
 			if (index === 0) {
-				createButton("Tous", "");
+				createButton("Tous", 0, true);
 			}
-			createButton(category.name, category.id);
+			createButton(category.name, category.id, false);
 		});
 	});
 }

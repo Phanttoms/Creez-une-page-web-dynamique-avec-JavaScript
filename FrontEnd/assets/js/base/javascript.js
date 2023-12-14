@@ -21,7 +21,7 @@ projectCollect();
 // Appel de la fonction de creation des "Filtres"
 categorieCollect();
 
-// smooth scroll //
+// Smooth scroll //
 const linkPortfolio = document.querySelector("#navProject");
 const linkContact = document.querySelector("#navContact");
 const portfolioSection = document.querySelector("#portfolio");

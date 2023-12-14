@@ -23,13 +23,8 @@ async function login(email, password) {
 			localStorage.setItem("token", token);
 			window.location.href = "./index.html";
 			console.log(token);
-		} else if (response.status === 401) {
-			errorMessage.textContent = "Mot de passe incorrect.";
-			console.log(`Erreur: ${response.status} !`);
-		} else if (response.status === 404) {
-			errorMessage.textContent = "E-Mail incorrect.";
-			console.log(`Erreur: ${response.status} !`);
 		} else {
+			errorMessage.textContent = "Erreur dans l’identifiant ou le mot de passe";
 			console.log(`Erreur: ${response.status} !`);
 		}
 	} catch (error) {
