@@ -128,13 +128,20 @@ table {
 	border-spacing: 0;
 }
 /** end reset css**/
-body {
+.body-index {
 	margin: auto;
 	font-family: "Work Sans";
 	font-size: 14px;
 	background-color: #fffef8;
 	display: flex;
 	flex-direction: column;
+}
+
+.body-login {
+	margin: auto;
+	font-family: "Work Sans";
+	font-size: 14px;
+	background-color: #fffef8;
 }
 
 .all-doc {
@@ -307,7 +314,7 @@ footer nav ul {
 	gap: 1.9rem;
 }
 
-.modal-button {
+.modal-button-open {
 	color: #000;
 	display: flex;
 	flex-direction: row;
@@ -407,9 +414,71 @@ footer nav ul {
 .modal-container {
 	width: 39rem;
 	height: 43rem;
-	background-color: red;
+	background-color: #fff;
 	border-radius: 0.6rem;
 	position: absolute;
 	top: 37rem;
 	align-self: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#modalContainer {
+	display: none;
+}
+
+.modal-button-leave {
+	width: 90%;
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 1.6rem;
+}
+
+.cross-right {
+	cursor: pointer;
+}
+
+.modal-title h3 {
+	color: #000;
+	text-align: center;
+	font-family: Work Sans;
+	font-size: 1.625rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	margin-top: 0.6rem;
+}
+
+#modalGallery {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 70%;
+	background-color: red;
+	margin-top: 2.8rem;
+	margin-bottom: 4.2rem;
+}
+
+.modal-line {
+	width: 26rem;
+	height: 0.06rem;
+	background-color: #b3b3b3;
+}
+
+.modal-button {
+	width: 14rem;
+	height: 2.2rem;
+	border-radius: 3.75rem;
+	background: #1d6154;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	font-family: Syne;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	margin: 2.8rem 12.3rem;
 }

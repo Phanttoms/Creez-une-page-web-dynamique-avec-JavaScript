@@ -1,8 +1,12 @@
+// Import
+import { openModal, closeModal } from "./modal.js";
+
 // Récuperation d'élément
 const token = localStorage.getItem("token");
 const header = document.getElementById("adminHeader");
-const modalButton = document.getElementById("adminButton");
 const filter = document.getElementById("hideFilter");
+const myModalOpenButton = document.getElementById("adminButton");
+const myModalCloseButton = document.getElementById("crossRight");
 
 // Mise a jour du boutton de Login en fonction du token de connection
 const isLogged = () => (token ? true : false);
@@ -28,7 +32,7 @@ async function loginButtonUpdate() {
 async function updateUI() {
 	if (isLogged()) {
 		header.style.display = "flex";
-		modalButton.style.display = "flex";
+		myModalOpenButton.style.display = "flex";
 		filter.style.display = "none";
 	}
 }
@@ -38,3 +42,7 @@ window.addEventListener("load", () => {
 	loginButtonUpdate();
 	updateUI();
 });
+
+// Ouverture ou fermeture de la modal
+myModalOpenButton.addEventListener("click", openModal);
+myModalCloseButton.addEventListener("click", closeModal);

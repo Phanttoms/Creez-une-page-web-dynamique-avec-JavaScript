@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="./assets/style/style.css">
 </head>
 
-<body>
+<body class="body-index">
 	<div class="admin-header" id="adminHeader">
 		<div class="admin-header-content">
 			<img src="./assets/icons/Vector.png" alt="Carré et crayon blanc">
@@ -52,7 +52,7 @@
 			<section id="portfolio">
 				<div class="portfolio-title">
 					<h2>Mes Projets</h2>
-					<div class="modal-button" id="adminButton">
+					<div class="modal-button-open" id="adminButton">
 						<img src="./assets/icons/Group.png" alt="Carré et crayon blanc">
 						<p>modifier</p>
 					</div>
@@ -89,9 +89,17 @@
 	</div>
 	<div class="modal-container" id="modalContainer">
 		<div class="modal-button-leave" id="modalButtonLeave">
-
+			<img src="./assets/icons/xmark.png" alt="cross" class="cross-right" id="crossRight">
 		</div>
-
+		<div class="modal-title" id="modalTitle">
+			<h3>Galerie photo</h3>
+		</div>
+		<div id="modalGallery">
+		</div>
+		<div class="modal-line"></div>
+		<div class="modal-button add-photo">
+			<p>Ajouter une photo</p>
+		</div>
 	</div>
 	<script src="./assets/js/base/javascript.js" type="module"></script>
 	<script src="./assets/js/admin/admin.js" type="module"></script>
