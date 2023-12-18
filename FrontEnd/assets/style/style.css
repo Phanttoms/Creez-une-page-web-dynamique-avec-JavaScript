@@ -453,11 +453,20 @@ footer nav ul {
 #modalGallery {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: space-between;
 	width: 70%;
-	background-color: red;
 	margin-top: 2.8rem;
 	margin-bottom: 4.2rem;
+}
+
+.work-modal {
+	position: relative;
+	margin-bottom: 0.5rem;
+}
+
+.work-modal img {
+	width: 4.8rem;
+	height: 6rem;
 }
 
 .modal-line {
