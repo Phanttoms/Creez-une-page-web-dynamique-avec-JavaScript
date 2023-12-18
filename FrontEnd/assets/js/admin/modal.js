@@ -21,15 +21,23 @@ const imgCollectModal = fetch("http://localhost:5678/api/works")
 		data.forEach((element) => {
 			// créer balises pour accueillir les images du portfolio
 			const modalGallery = document.getElementById("modalGallery");
-			const maDiv = document.createElement("div");
+			const myDiv = document.createElement("div");
 			const myImg = document.createElement("img");
+			const trash = document.createElement("img");
+			const trashBox = document.createElement("div");
 
 			myImg.src = element.imageUrl;
-			maDiv.dataset.categorie = element.categoryId;
+			myDiv.dataset.categorie = element.categoryId;
 
-			maDiv.classList.add("work-modal");
+			trash.src = "./assets/icons/trash-can-solid.png";
+			myDiv.classList.add("work-modal");
+			myImg.classList.add("modal-img");
+			trash.classList.add("trash");
+			trashBox.classList.add("trash-div");
 
-			modalGallery.appendChild(maDiv);
-			maDiv.appendChild(myImg);
+			modalGallery.appendChild(myDiv);
+			myDiv.appendChild(myImg);
+			myDiv.appendChild(trashBox);
+			trashBox.appendChild(trash);
 		});
 	});
