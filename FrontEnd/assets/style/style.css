@@ -133,6 +133,8 @@ body {
 	font-family: "Work Sans";
 	font-size: 14px;
 	background-color: #fffef8;
+	display: flex;
+	flex-direction: column;
 }
 
 .all-doc {
@@ -399,4 +401,15 @@ footer nav ul {
 	font-size: 1rem;
 	margin-top: 1em;
 	text-align: center;
+}
+
+/* Modal */
+.modal-container {
+	width: 39rem;
+	height: 43rem;
+	background-color: red;
+	border-radius: 0.6rem;
+	position: absolute;
+	top: 37rem;
+	align-self: center;
 }
