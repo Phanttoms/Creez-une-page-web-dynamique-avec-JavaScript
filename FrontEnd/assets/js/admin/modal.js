@@ -2,18 +2,26 @@
 import { getWorks } from "../base/api.js";
 
 // Récuperation éléments modal
-const myModal = document.getElementById("modalContainer");
+const myDeleteModal = document.getElementById("modalDeleteContainer");
+const myAddModal = document.getElementById("modalAddContainer");
 const allDocBackground = document.getElementById("allDoc");
 
 // Fonction d'ouverture ou fermeture de la modal
 export async function openModal() {
-	myModal.style.display = "flex";
+	myDeleteModal.style.display = "flex";
 	allDocBackground.style.opacity = "0.5";
 	imgCollectModal;
 }
 
+export async function openAddModal() {
+	myAddModal.style.display = "flex";
+	allDocBackground.style.opacity = "0.5";
+	myDeleteModal.style.display = "none";
+}
+
 export async function closeModal() {
-	myModal.style.display = "none";
+	myDeleteModal.style.display = "none";
+	myAddModal.style.display = "none";
 	allDocBackground.style.opacity = "1";
 }
 

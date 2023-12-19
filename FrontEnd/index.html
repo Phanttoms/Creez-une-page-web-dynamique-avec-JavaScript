@@ -87,20 +87,36 @@
 		</footer>
 
 	</div>
-	<div class="modal-container" id="modalContainer">
-		<div class="modal-button-leave" id="modalButtonLeave">
-			<img src="./assets/icons/xmark.png" alt="cross" class="cross-right" id="crossRight">
+	<!-- Modal Gallerie -->
+	<div class="modal-container" id="modalDeleteContainer">
+		<div class="modal-button-leave">
+			<img src="./assets/icons/xmark.png" alt="cross" class="cross-right" id="crossRightDelete">
 		</div>
-		<div class="modal-title" id="modalTitle">
+		<div class="modal-title">
 			<h3>Galerie photo</h3>
 		</div>
 		<div id="modalGallery">
 		</div>
 		<div class="modal-line"></div>
-		<div class="modal-button add-photo">
+		<div class="modal-button" id="modalAddButton">
 			<p>Ajouter une photo</p>
 		</div>
 	</div>
+	<!-- Modal d'ajout projet -->
+	<div class="modal-container" id="modalAddContainer">
+		<div class="modal-button-leave">
+			<img src="./assets/icons/arrow-left.png" alt="fleche gauche" class="arrow-left" id="arrowLeft">
+			<img src="./assets/icons/xmark.png" alt="cross" class="cross-right" id="crossRightAdd">
+		</div>
+		<div class="modal-title">
+			<h3>Ajout photo</h3>
+		</div>
+		<div class="modal-line"></div>
+		<div class="modal-button">
+			<p>Valider</p>
+		</div>
+	</div>
+	<!-- Script JavaScript -->
 	<script src="./assets/js/base/javascript.js" type="module"></script>
 	<script src="./assets/js/admin/admin.js" type="module"></script>
 </body>

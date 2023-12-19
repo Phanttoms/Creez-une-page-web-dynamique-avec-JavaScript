@@ -413,7 +413,7 @@ footer nav ul {
 /* Modal */
 .modal-container {
 	width: 39rem;
-	height: 43rem;
+	height: auto;
 	background-color: #fff;
 	border-radius: 0.6rem;
 	position: absolute;
@@ -424,7 +424,11 @@ footer nav ul {
 	align-items: center;
 }
 
-#modalContainer {
+#modalDeleteContainer {
+	display: none;
+}
+
+#modalAddContainer {
 	display: none;
 }
 
@@ -503,4 +507,5 @@ footer nav ul {
 	font-weight: 700;
 	line-height: normal;
 	margin: 2.8rem 12.3rem;
+	cursor: pointer;
 }
