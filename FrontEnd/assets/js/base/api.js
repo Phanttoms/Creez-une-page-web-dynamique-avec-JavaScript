@@ -6,7 +6,6 @@ export async function getWorks() {
 	try {
 		const response = await fetch(`${urlApi}/works`);
 		const data = await response.json();
-		console.log("Tout va bien :)");
 		return data;
 	} catch (error) {
 		console.log("Impossible de joindre le serveur :(");
@@ -18,7 +17,6 @@ export async function getCategory() {
 	try {
 		const response = await fetch(`${urlApi}/categories`);
 		const data = await response.json();
-		console.log("Catégories chargé, c'est bon :)");
 		return data;
 	} catch (error) {
 		console.log("Impossible de joindre le serveur (catégories) :(");

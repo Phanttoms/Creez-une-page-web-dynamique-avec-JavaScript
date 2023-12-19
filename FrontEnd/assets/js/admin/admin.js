@@ -46,23 +46,3 @@ window.addEventListener("load", () => {
 // Ouverture ou fermeture de la modal
 myModalOpenButton.addEventListener("click", openModal);
 myModalCloseButton.addEventListener("click", closeModal);
-
-// // test
-// const imgCollectModal = fetch("http://localhost:5678/api/works")
-// 	.then((reponse) => reponse.json())
-// 	.then((data) => {
-// 		data.forEach((element) => {
-// 			// créer balises pour accueillir les images du portfolio
-// 			const modalGallery = document.querySelector(".modal-gallery");
-// 			const maDiv = document.createElement("div");
-// 			const myImg = document.createElement("img");
-
-// 			myImg.src = element.imageUrl;
-// 			maDiv.dataset.categorie = element.categoryId;
-
-// 			maDiv.classList.add("work-modal");
-
-// 			modalGallery.appendChild(maDiv);
-// 			maDiv.appendChild(myImg);
-// 		});
-// 	});

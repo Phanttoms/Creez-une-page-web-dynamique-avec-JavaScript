@@ -1,3 +1,6 @@
+// Import
+import { getWorks } from "../base/api.js";
+
 // Récuperation éléments modal
 const myModal = document.getElementById("modalContainer");
 const allDocBackground = document.getElementById("allDoc");
@@ -15,29 +18,27 @@ export async function closeModal() {
 }
 
 // test
-const imgCollectModal = fetch("http://localhost:5678/api/works")
-	.then((reponse) => reponse.json())
-	.then((data) => {
-		data.forEach((element) => {
-			// créer balises pour accueillir les images du portfolio
-			const modalGallery = document.getElementById("modalGallery");
-			const myDiv = document.createElement("div");
-			const myImg = document.createElement("img");
-			const trash = document.createElement("img");
-			const trashBox = document.createElement("div");
+const imgCollectModal = getWorks().then((data) => {
+	data.forEach((element) => {
+		// créer balises pour accueillir les images du portfolio
+		const modalGallery = document.getElementById("modalGallery");
+		const myDiv = document.createElement("div");
+		const myImg = document.createElement("img");
+		const trash = document.createElement("img");
+		const trashBox = document.createElement("div");
 
-			myImg.src = element.imageUrl;
-			myDiv.dataset.categorie = element.categoryId;
+		myImg.src = element.imageUrl;
+		myDiv.dataset.categorie = element.categoryId;
 
-			trash.src = "./assets/icons/trash-can-solid.png";
-			myDiv.classList.add("work-modal");
-			myImg.classList.add("modal-img");
-			trash.classList.add("trash");
-			trashBox.classList.add("trash-div");
+		trash.src = "./assets/icons/trash-can-solid.png";
+		myDiv.classList.add("work-modal");
+		myImg.classList.add("modal-img");
+		trash.classList.add("trash");
+		trashBox.classList.add("trash-div");
 
-			modalGallery.appendChild(myDiv);
-			myDiv.appendChild(myImg);
-			myDiv.appendChild(trashBox);
-			trashBox.appendChild(trash);
-		});
+		modalGallery.appendChild(myDiv);
+		myDiv.appendChild(myImg);
+		myDiv.appendChild(trashBox);
+		trashBox.appendChild(trash);
 	});
+});

@@ -2,24 +2,17 @@
 import { projectCollect } from "./projets.js";
 import { categorieCollect } from "./filter.js";
 
-// // Récuperation du token
-// const token = localStorage.getItem("token");
-
-// // Appel de la page en fonction du Token
-// if (token === true) {
-// 	projectCollect();
-// 	console.log("token true");
-// } else {
-// 	console.log("token false");
-// 	projectCollect();
-// 	categorieCollect();
-// }
-
-// Appel de la fonction de creation de "Mes Projets"
-projectCollect();
-
-// Appel de la fonction de creation des "Filtres"
-categorieCollect();
+// Appel des projets et filtre au loading de la page
+window.addEventListener("load", (event) => {
+	try {
+		projectCollect();
+		categorieCollect();
+		console.log("La page est complètement chargée.");
+	} catch (error) {
+		console.log(error);
+		console.log("Le serveur n'a pas pu être joint.");
+	}
+});
 
 // Smooth scroll //
 const linkPortfolio = document.querySelector("#navProject");

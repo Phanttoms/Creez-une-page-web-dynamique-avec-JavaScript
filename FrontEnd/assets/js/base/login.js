@@ -33,7 +33,6 @@ async function login(email, password) {
 				const token = data.token;
 				localStorage.setItem("token", token);
 				window.location.href = "./index.html";
-				console.log(token);
 			} else {
 				errorMessage.textContent =
 					"Erreur dans l’identifiant ou le mot de passe";

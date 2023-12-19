@@ -480,6 +480,7 @@ footer nav ul {
 	justify-content: center;
 	align-items: center;
 	border-radius: 0.2rem;
+	cursor: pointer;
 }
 
 .modal-line {
