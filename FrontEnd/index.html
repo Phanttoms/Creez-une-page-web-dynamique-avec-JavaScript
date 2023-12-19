@@ -113,26 +113,50 @@
 		</div>
 		<div class="modal-main">
 			<div class="modal-picture">
-				<img>
-				<button class="add-picture-btn"> + Ajouter une photo</button>
+				<img src="./assets/icons/test-pic.png" alt="icone paysage" class="base-pic">
+				<div class="button-add">
+					<span id="buttonAddPhoto">+ Ajouter photo</span>
+				</div>
 				<input type="file" class="photo-input">
 				<p>jpg, png : 4mo max</p>
 			</div>
 		</div>
 		<div class="modal-form">
-			<form action="#" method="post" class="form-container-modal">
-				<label for="titre" class="title-form-modal">Titre</label>
-				<input type="text" name="titre" id="title-input">
+			<form id="addPhotoForm" class="add-photo-form">
+				<label for="titre" class="label-input">Titre</label>
+				<input type="text" name="titre" class="input-form" id="title-input">
 			</form>
 		</div>
 		<div class="modal-line"></div>
-		<div class="modal-button">
-			<p>Valider</p>
-		</div>
+		<button class="modal-button" id="buttonValidation">Valider</button>
 	</div>
+	<!-- ****************************** TEST ***************************** -->
+	<!-- <div class="modal">
+		<div class="modal__container">
+			<header class="modal__header">
+				<button class="modalButton modalBackward">
+					<i class="fa-solid fa-arrow-left"></i></button>
+				<span></span>
+				<button class="modalButton modal__button--close"><i class="fa-solid fa-x modal__close"></i></button>
+			</header>
+			<h2 class="modal__title"></h2>
+			<div class="modal__content"></div>
+			<footer class="modal__footer">
+				<div class="modal__footer__gallery">
+					<button class="modal__footer__button modal__footer__button--add">Ajouter une photo</button>
+					<button class="modal__footer__button-delete">Supprimer la galerie</button>
+				</div>
+				<div class="modal__footer__upload">
+					<button class="modal__footer__button modal__footer__button--upload">Valider</button>
+				</div>
+			</footer>
+		</div>
+	</div> -->
+	<!-- ***************************************************************** -->
 	<!-- Script JavaScript -->
 	<script src="./assets/js/base/javascript.js" type="module"></script>
 	<script src="./assets/js/admin/admin.js" type="module"></script>
+	<!-- <script src="./assets/js/admin/test.js" type="module"></script> -->
 </body>
 
 </html>

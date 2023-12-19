@@ -1,5 +1,5 @@
 // Import
-import { getWorks } from "../base/api.js";
+import { getWorks, getCategory } from "../base/api.js";
 
 // Récuperation éléments modal
 const myDeleteModal = document.getElementById("modalDeleteContainer");
@@ -18,6 +18,7 @@ export async function openAddModal() {
 	myAddModal.style.display = "flex";
 	allDocBackground.style.opacity = "0.5";
 	myDeleteModal.style.display = "none";
+	categorieSelectorModal;
 }
 
 export async function closeModal() {
@@ -74,3 +75,31 @@ async function deleteWork(e) {
 		}
 	});
 }
+
+// Creation des balises pour le formulaire
+const formContainer = document.querySelector("#addPhotoForm");
+const labelCategory = document.createElement("label");
+const inputCategory = document.createElement("select");
+const optionInputCategory = document.createElement("option");
+
+labelCategory.textContent = "Categorie";
+
+inputCategory.classList.add("input-form");
+optionInputCategory.classList.add("option-input-category");
+labelCategory.classList.add("label-input");
+
+formContainer.appendChild(labelCategory);
+inputCategory.appendChild(optionInputCategory);
+formContainer.appendChild(inputCategory);
+
+// Fonction de creation du selecteur de categorie dans la modal
+const categorieSelectorModal = getCategory().then((categories) => {
+	categories.forEach((category) => {
+		const option = document.createElement("option");
+		option.value = category.id;
+		option.textContent = category.name;
+		inputCategory.appendChild(option);
+	});
+});
+
+// test
