@@ -89,7 +89,7 @@
 	</div>
 	<!-- Modal Gallerie -->
 	<div class="modal-container" id="modalDeleteContainer">
-		<div class="modal-button-leave">
+		<div class="modal-button-leave modal-delete">
 			<img src="./assets/icons/xmark.png" alt="cross" class="cross-right" id="crossRightDelete">
 		</div>
 		<div class="modal-title">
@@ -104,12 +104,26 @@
 	</div>
 	<!-- Modal d'ajout projet -->
 	<div class="modal-container" id="modalAddContainer">
-		<div class="modal-button-leave">
+		<div class="modal-button-leave modal-add">
 			<img src="./assets/icons/arrow-left.png" alt="fleche gauche" class="arrow-left" id="arrowLeft">
 			<img src="./assets/icons/xmark.png" alt="cross" class="cross-right" id="crossRightAdd">
 		</div>
 		<div class="modal-title">
 			<h3>Ajout photo</h3>
+		</div>
+		<div class="modal-main">
+			<div class="modal-picture">
+				<img>
+				<button class="add-picture-btn"> + Ajouter une photo</button>
+				<input type="file" class="photo-input">
+				<p>jpg, png : 4mo max</p>
+			</div>
+		</div>
+		<div class="modal-form">
+			<form action="#" method="post" class="form-container-modal">
+				<label for="titre" class="title-form-modal">Titre</label>
+				<input type="text" name="titre" id="title-input">
+			</form>
 		</div>
 		<div class="modal-line"></div>
 		<div class="modal-button">

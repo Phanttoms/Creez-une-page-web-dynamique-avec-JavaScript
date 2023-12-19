@@ -9,6 +9,7 @@ const myModalOpenButton = document.getElementById("adminButton");
 const myModalDeleteCloseButton = document.getElementById("crossRightDelete");
 const myModalAddCloseButton = document.getElementById("crossRightAdd");
 const modalNavbutton = document.getElementById("modalAddButton");
+const modalArrow = document.getElementById("arrowLeft");
 
 // Mise a jour du boutton de Login en fonction du token de connection
 const isLogged = () => (token ? true : false);
@@ -52,3 +53,4 @@ myModalAddCloseButton.addEventListener("click", closeModal);
 
 // Nav Modal
 modalNavbutton.addEventListener("click", openAddModal);
+modalArrow.addEventListener("click", openModal);

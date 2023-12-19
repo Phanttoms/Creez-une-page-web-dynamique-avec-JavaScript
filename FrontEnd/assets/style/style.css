@@ -435,11 +435,23 @@ footer nav ul {
 .modal-button-leave {
 	width: 90%;
 	display: flex;
-	justify-content: flex-end;
+
 	margin-top: 1.6rem;
 }
 
+.modal-delete {
+	justify-content: flex-end;
+}
+
+.modal-add {
+	justify-content: space-between;
+}
+
 .cross-right {
+	cursor: pointer;
+}
+
+.arrow-left {
 	cursor: pointer;
 }
 

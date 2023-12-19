@@ -11,6 +11,7 @@ export async function openModal() {
 	myDeleteModal.style.display = "flex";
 	allDocBackground.style.opacity = "0.5";
 	imgCollectModal;
+	myAddModal.style.display = "none";
 }
 
 export async function openAddModal() {
