@@ -47,10 +47,10 @@ const imgCollectModal = getWorks().then((data) => {
 });
 
 // Fonction de suppression des projets de la gellerie
-function deleteWork(e) {
+async function deleteWork(e) {
 	e.preventDefault();
 
-	fetch(`http://localhost:5678/api/works/${e.target.dataset.id}`, {
+	await fetch(`http://localhost:5678/api/works/${e.target.dataset.id}`, {
 		method: "DELETE",
 		headers: {
 			"Content-Type": "application/json",
