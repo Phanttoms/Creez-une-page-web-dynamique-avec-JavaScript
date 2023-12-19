@@ -45,7 +45,7 @@ async function handleFilters(categoryId) {
 		}
 	});
 }
-// Fonction
+// Fonction d'appel des filtres
 export async function categorieCollect() {
 	getCategory().then((categories) => {
 		categories.forEach((category, index) => {

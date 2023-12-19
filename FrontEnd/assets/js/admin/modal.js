@@ -17,28 +17,51 @@ export async function closeModal() {
 	allDocBackground.style.opacity = "1";
 }
 
-// test
+// Creation de la gallerie dans la modal
 const imgCollectModal = getWorks().then((data) => {
 	data.forEach((element) => {
-		// créer balises pour accueillir les images du portfolio
+		// Créer balises pour accueillir les images du portfolio
 		const modalGallery = document.getElementById("modalGallery");
 		const myDiv = document.createElement("div");
 		const myImg = document.createElement("img");
 		const trash = document.createElement("img");
-		const trashBox = document.createElement("div");
 
 		myImg.src = element.imageUrl;
 		myDiv.dataset.categorie = element.categoryId;
 
+		// Listener pour suppression de projet
+		trash.dataset.id = element.id;
+		trash.addEventListener("click", deleteWork);
+
+		// Ajout des class et src pour les balises crée
 		trash.src = "./assets/icons/trash-can-solid.png";
 		myDiv.classList.add("work-modal");
 		myImg.classList.add("modal-img");
 		trash.classList.add("trash");
-		trashBox.classList.add("trash-div");
 
+		// Ajout au HTML des balises
 		modalGallery.appendChild(myDiv);
 		myDiv.appendChild(myImg);
-		myDiv.appendChild(trashBox);
-		trashBox.appendChild(trash);
+		myDiv.appendChild(trash);
 	});
 });
+
+// Fonction de suppression des projets de la gellerie
+function deleteWork(e) {
+	e.preventDefault();
+
+	fetch(`http://localhost:5678/api/works/${e.target.dataset.id}`, {
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+			Origin: "http://localhost:5500/",
+			Authorization: `Bearer ${localStorage.token}`,
+		},
+	}).then((response) => {
+		if (response.ok) {
+			e.target.parentElement.remove();
+		} else {
+			console.error("La suppression a échoué.");
+		}
+	});
+}

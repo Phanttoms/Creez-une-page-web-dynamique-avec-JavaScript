@@ -2,19 +2,21 @@
 const loginForm = document.getElementById("formContent");
 const errorMessage = document.getElementById("error");
 
-// Variable Regex pour le Mail et le mot de passe
+// Variable Regex pour l'E-Mail et le mot de passe
 const regexMail =
 	/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const regexPassword = /^[a-zA-Z]\w{5,14}/;
 
 // Fonction d'envoie des information de connection et verification de la réponse
 async function login(email, password) {
+	// Gestion des erreur de syntax E-mail et mot de passe
 	if (!regexMail.test(email)) {
 		errorMessage.textContent = "E-mail invalide";
 	} else if (!regexPassword.test(password)) {
 		errorMessage.textContent =
-			"Le mot de passe doit contenir au moins 6 caractere, dont un chiffre";
+			"Le mot de passe doit contenir au moins 6 caractere, dont un chiffre.";
 	} else {
+		// Lancement du fetch en POST du serveur
 		try {
 			const response = await fetch("http://localhost:5678/api/users/login", {
 				method: "POST",
@@ -28,6 +30,7 @@ async function login(email, password) {
 				}),
 			});
 
+			// Gestion des reponses serveur
 			if (response.status === 200) {
 				const data = await response.json();
 				const token = data.token;
@@ -35,7 +38,7 @@ async function login(email, password) {
 				window.location.href = "./index.html";
 			} else {
 				errorMessage.textContent =
-					"Erreur dans l’identifiant ou le mot de passe";
+					"Erreur dans l’identifiant ou le mot de passe.";
 				console.log(`Erreur: ${response.status} !`);
 			}
 		} catch (error) {
