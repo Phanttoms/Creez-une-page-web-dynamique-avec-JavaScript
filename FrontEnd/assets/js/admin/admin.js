@@ -7,42 +7,29 @@ const header = document.getElementById("adminHeader");
 const filter = document.getElementById("hideFilter");
 const myModalOpenButton = document.getElementById("adminButton");
 const myModalCloseButton = document.querySelector(".modal-cross-right");
-
-// Mise a jour du boutton de Login en fonction du token de connection
-const isLogged = () => (token ? true : false);
-
-function logOut() {
-	localStorage.clear("token");
-	console.log("disconnected");
-	window.location.reload();
-}
-
-async function loginButtonUpdate() {
-	const loginButton = document.querySelector("#loginButton");
-	if (isLogged()) {
-		loginButton.href = "#";
-		loginButton.innerText = "logout";
-		loginButton.addEventListener("click", () => {
-			logOut();
-			loginButton.innerText = "login";
-		});
-	}
-}
-
-async function updateUI() {
-	if (isLogged()) {
-		header.style.display = "flex";
-		myModalOpenButton.style.display = "flex";
-		filter.style.display = "none";
-	}
-}
+const loginLink = document.querySelector("#loginButton");
 
 // Listener de lancement des fonctions ADMIN
 window.addEventListener("load", () => {
-	loginButtonUpdate();
-	updateUI();
+	checkAuth();
 });
 
-// // Ouverture ou fermeture de la modal
+// Ouverture ou fermeture de la modal
 myModalOpenButton.addEventListener("click", openModal);
 myModalCloseButton.addEventListener("click", closeModal);
+
+// Affichage des elements Admin
+async function checkAuth() {
+	// fonction de vérification de l'authentification
+	if (token) {
+		filter.style.display = "none";
+		header.style.display = "flex";
+		myModalOpenButton.style.display = "flex";
+		loginLink.textContent = "logout";
+		loginLink.href = "#";
+		loginLink.addEventListener("click", () => {
+			localStorage.clear("token");
+			window.location.reload();
+		});
+	}
+}

@@ -427,7 +427,7 @@ footer nav ul {
 
 .break {
 	width: 70%;
-	height: 0.2rem;
+	height: 0.1rem;
 	background: #b3b3b3;
 	margin: 2rem 0;
 }
@@ -446,6 +446,9 @@ footer nav ul {
 	flex-direction: row;
 	justify-content: space-between;
 	width: 95%;
+}
+
+.modal-nav-button {
 	cursor: pointer;
 }
 
@@ -484,5 +487,38 @@ footer nav ul {
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
+	cursor: pointer;
+}
+
+.modal-arrow-left {
+	visibility: hidden;
+}
+
+.modal-content {
+	background-color: red;
+	width: 70%;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin: 2rem 0 0 0;
+}
+
+.modal-article {
+	display: flex;
+	flex-direction: column;
+}
+
+.modal-article-image {
+	width: 4rem;
+}
+
+.modal-article-button {
+	position: absolute;
+	align-self: flex-end;
+	margin: 0.3rem 0.3rem 0 0;
+	border: 3px solid #000;
+	background-color: #000;
+	border-radius: 0.2rem;
 	cursor: pointer;
 }

@@ -22,3 +22,15 @@ export async function getCategory() {
 		console.log("Impossible de joindre le serveur (catégories) :(");
 	}
 }
+
+// test
+export async function deleteWork(workId) {
+	// fonction de suppression de travaux via l'id en paramètre + appel api
+	const response = await fetch(`http://localhost:5678/api/works/${workId}`, {
+		method: "DELETE",
+		headers: {
+			Authorization: `Bearer ${localStorage.getItem("token")}`,
+		},
+	});
+	return response;
+}
