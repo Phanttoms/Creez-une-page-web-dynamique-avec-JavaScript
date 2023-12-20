@@ -1,7 +1,5 @@
 // // Import
 import { getWorks, getCategory, deleteWork } from "../base/api.js";
-import { projectCollect } from "../base/projets.js";
-import { categorieCollect } from "../base/filter.js";
 
 // Récuperation éléments modal
 const myModal = document.querySelector(".modal");
@@ -26,6 +24,7 @@ function createModalGalleryPage() {
 	modalTitle.textContent = "Galerie photo";
 	modalContent.innerHTML = "";
 	modalFooterGallery.style.display = "flex";
+	modalFooterGallery.textContent = "Ajouter une photo";
 	getWorks().then((works) => {
 		works.forEach((work) =>
 			modalContent.appendChild(
@@ -54,7 +53,6 @@ const createModalArticle = (imageUrl, imageName, imageId) => {
 	modalContent.appendChild(article);
 
 	deleteBtn.addEventListener("click", async () => {
-		console.log("salut");
 		try {
 			const response = await deleteWork(imageId);
 			if (response.status === 204) {
@@ -65,7 +63,6 @@ const createModalArticle = (imageUrl, imageName, imageId) => {
 				console.log("nope 2");
 			}
 		} catch (error) {
-			// notificationTypo(error, "negative");
 			console.log(error);
 		}
 	});

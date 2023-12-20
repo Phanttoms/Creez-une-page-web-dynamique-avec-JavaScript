@@ -495,7 +495,6 @@ footer nav ul {
 }
 
 .modal-content {
-	background-color: red;
 	width: 70%;
 	height: auto;
 	display: flex;
@@ -507,10 +506,11 @@ footer nav ul {
 .modal-article {
 	display: flex;
 	flex-direction: column;
+	margin-top: 0.5rem;
 }
 
 .modal-article-image {
-	width: 4rem;
+	width: 5rem;
 }
 
 .modal-article-button {
