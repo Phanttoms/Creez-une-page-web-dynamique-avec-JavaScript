@@ -18,7 +18,6 @@ export async function openModal() {
 
 export async function closeModal() {
 	myModal.style.display = "none";
-	allDocBackground.style.opacity = "1";
 }
 
 function createModalGalleryPage() {
