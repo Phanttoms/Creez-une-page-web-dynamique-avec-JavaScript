@@ -1,17 +1,18 @@
 // // Import
 import { getWorks, getCategory, deleteWork } from "../base/api.js";
+import { projectCollect } from "../base/projets.js";
 
 // Récuperation éléments modal
-const myModal = document.querySelector(".modal");
+const myModal = document.querySelector(".modal-container");
 const allDocBackground = document.getElementById("allDoc");
 const modalTitle = document.querySelector(".modal-title");
 const modalContent = document.querySelector(".modal-content");
 const modalFooterGallery = document.querySelector(".modal-footer-gallery");
+const gallery = document.querySelector(".gallery");
 
 // Fonction d'ouverture ou fermeture de la modal
 export async function openModal() {
-	myModal.style.display = "flex";
-	allDocBackground.style.opacity = "0.5";
+	myModal.style.display = "block";
 	createModalGalleryPage();
 }
 
@@ -57,6 +58,8 @@ const createModalArticle = (imageUrl, imageName, imageId) => {
 			const response = await deleteWork(imageId);
 			if (response.status === 204) {
 				createModalGalleryPage();
+				gallery.innerHTML = "";
+				projectCollect();
 			} else if (response.status === 401) {
 				console.log("nope 1");
 			} else {

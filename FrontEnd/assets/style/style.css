@@ -410,18 +410,31 @@ footer nav ul {
 	text-align: center;
 }
 
+/* overlay */
+.modal-overlay {
+	background: rgba(0, 0, 0, 0.3);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.modal-container {
+	display: none;
+}
+
 /* Modal */
 .modal {
 	display: flex;
 	flex-direction: column;
-	display: none;
 	position: absolute;
-	width: 39rem;
+	top: 37rem;
+	left: 30%;
+	width: 40%;
 	height: auto;
 	background: #fff;
-	align-self: center;
 	align-items: center;
-	top: 30rem;
 	border-radius: 0.625rem;
 }
 
