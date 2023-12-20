@@ -6,10 +6,7 @@ const token = localStorage.getItem("token");
 const header = document.getElementById("adminHeader");
 const filter = document.getElementById("hideFilter");
 const myModalOpenButton = document.getElementById("adminButton");
-const myModalCloseButton = document.querySelector(".modal__close");
-// const myModalAddCloseButton = document.getElementById("crossRightAdd");
-// const modalNavbutton = document.getElementById("modalAddButton");
-// const modalArrow = document.getElementById("arrowLeft");
+const myModalCloseButton = document.querySelector(".modal-cross-right");
 
 // Mise a jour du boutton de Login en fonction du token de connection
 const isLogged = () => (token ? true : false);
@@ -49,10 +46,3 @@ window.addEventListener("load", () => {
 // // Ouverture ou fermeture de la modal
 myModalOpenButton.addEventListener("click", openModal);
 myModalCloseButton.addEventListener("click", closeModal);
-// myModalAddCloseButton.addEventListener("click", closeModal);
-
-// // Nav Modal
-// modalNavbutton.addEventListener("click", openAddModal);
-// modalArrow.addEventListener("click", openModal);
-
-// // test

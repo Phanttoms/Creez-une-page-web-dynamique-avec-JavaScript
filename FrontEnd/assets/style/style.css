@@ -411,51 +411,45 @@ footer nav ul {
 }
 
 /* Modal */
-.modal-container {
-	width: 39rem;
-	height: auto;
-	background-color: #fff;
-	border-radius: 0.6rem;
-	position: absolute;
-	top: 37rem;
-	align-self: center;
+.modal {
 	display: flex;
 	flex-direction: column;
+	display: none;
+	position: absolute;
+	width: 39rem;
+	height: auto;
+	background: #fff;
+	align-self: center;
 	align-items: center;
+	top: 30rem;
+	border-radius: 0.625rem;
 }
 
-#modalDeleteContainer {
-	display: none;
+.break {
+	width: 70%;
+	height: 0.2rem;
+	background: #b3b3b3;
+	margin: 2rem 0;
 }
 
-#modalAddContainer {
-	display: none;
-}
-
-.modal-button-leave {
-	width: 90%;
+.modal-header {
 	display: flex;
-
-	margin-top: 1.6rem;
+	flex-direction: column;
+	width: 100%;
+	height: auto;
+	align-items: center;
+	margin-top: 1rem;
 }
 
-.modal-delete {
-	justify-content: flex-end;
-}
-
-.modal-add {
+.modal-nav-buttons {
+	display: flex;
+	flex-direction: row;
 	justify-content: space-between;
-}
-
-.cross-right {
+	width: 95%;
 	cursor: pointer;
 }
 
-.arrow-left {
-	cursor: pointer;
-}
-
-.modal-title h3 {
+.modal-title {
 	color: #000;
 	text-align: center;
 	font-family: Work Sans;
@@ -463,85 +457,32 @@ footer nav ul {
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;
-	margin-top: 0.6rem;
 }
 
-#modalGallery {
+.modal-action-buttons {
+	width: 100%;
+	height: auto;
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	width: 70%;
-	margin-top: 2.8rem;
-	margin-bottom: 4.2rem;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 0 0 2rem 0;
 }
 
-.work-modal {
-	position: relative;
-	margin-bottom: 0.5rem;
-}
-
-.modal-img {
-	width: 4.8rem;
-	height: 6rem;
-}
-
-.trash {
-	position: absolute;
-	right: 0.3rem;
-	top: 0.3rem;
-	background-color: #000;
+.button-action {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-radius: 0.2rem;
-	cursor: pointer;
-	border: 0.2rem solid black;
-}
-
-.modal-line {
-	width: 26rem;
-	height: 0.06rem;
-	background-color: #b3b3b3;
-}
-
-.modal-button {
-	width: 14rem;
-	height: 2.2rem;
+	width: 14.8125rem;
+	height: 2.25rem;
 	border-radius: 3.75rem;
 	background: #1d6154;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	color: #fff;
+	text-align: center;
 	font-family: Syne;
 	font-size: 0.875rem;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
-	margin: 2.8rem 12.3rem;
 	cursor: pointer;
-	border: none;
-}
-
-/* Modal ajout projet */
-.modal {
-	display: flex;
-	display: none;
-	position: absolute;
-	width: 39rem;
-	height: auto;
-	background: white;
-	align-self: center;
-	top: 30rem;
-	margin: 0;
-	padding: 0;
-}
-
-.modal__container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: auto;
 }
