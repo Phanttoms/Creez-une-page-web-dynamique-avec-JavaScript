@@ -88,75 +88,28 @@
 
 	</div>
 	<!-- Modal Gallerie -->
-	<div class="modal-container" id="modalDeleteContainer">
-		<div class="modal-button-leave modal-delete">
-			<img src="./assets/icons/xmark.png" alt="cross" class="cross-right" id="crossRightDelete">
-		</div>
-		<div class="modal-title">
-			<h3>Galerie photo</h3>
-		</div>
-		<div id="modalGallery">
-		</div>
-		<div class="modal-line"></div>
-		<div class="modal-button" id="modalAddButton">
-			<p>Ajouter une photo</p>
-		</div>
-	</div>
-	<!-- Modal d'ajout projet -->
-	<div class="modal-container" id="modalAddContainer">
-		<div class="modal-button-leave modal-add">
-			<img src="./assets/icons/arrow-left.png" alt="fleche gauche" class="arrow-left" id="arrowLeft">
-			<img src="./assets/icons/xmark.png" alt="cross" class="cross-right" id="crossRightAdd">
-		</div>
-		<div class="modal-title">
-			<h3>Ajout photo</h3>
-		</div>
-		<div class="modal-main">
-			<div class="modal-picture">
-				<img src="./assets/icons/test-pic.png" alt="icone paysage" class="base-pic">
-				<div class="button-add">
-					<span id="buttonAddPhoto">+ Ajouter photo</span>
-				</div>
-				<input type="file" class="photo-input">
-				<p>jpg, png : 4mo max</p>
-			</div>
-		</div>
-		<div class="modal-form">
-			<form id="addPhotoForm" class="add-photo-form">
-				<label for="titre" class="label-input">Titre</label>
-				<input type="text" name="titre" class="input-form" id="title-input">
-			</form>
-		</div>
-		<div class="modal-line"></div>
-		<button class="modal-button" id="buttonValidation">Valider</button>
-	</div>
-	<!-- ****************************** TEST ***************************** -->
-	<!-- <div class="modal">
+	<div class="modal">
 		<div class="modal__container">
 			<header class="modal__header">
-				<button class="modalButton modalBackward">
-					<i class="fa-solid fa-arrow-left"></i></button>
-				<span></span>
-				<button class="modalButton modal__button--close"><i class="fa-solid fa-x modal__close"></i></button>
+				<img class="modalButton modalBackward" src="./assets/icons/arrow-left.png" alt="Fleche gauche">
+				<img class="modalButton modal__button--close modal__close" src="./assets/icons/xmark.png"
+					alt="Fleche gauche">
 			</header>
-			<h2 class="modal__title"></h2>
+			<h3 class="modal__title"></h3>
 			<div class="modal__content"></div>
 			<footer class="modal__footer">
 				<div class="modal__footer__gallery">
 					<button class="modal__footer__button modal__footer__button--add">Ajouter une photo</button>
-					<button class="modal__footer__button-delete">Supprimer la galerie</button>
 				</div>
 				<div class="modal__footer__upload">
 					<button class="modal__footer__button modal__footer__button--upload">Valider</button>
 				</div>
 			</footer>
 		</div>
-	</div> -->
-	<!-- ***************************************************************** -->
+	</div>
 	<!-- Script JavaScript -->
 	<script src="./assets/js/base/javascript.js" type="module"></script>
 	<script src="./assets/js/admin/admin.js" type="module"></script>
-	<!-- <script src="./assets/js/admin/test.js" type="module"></script> -->
 </body>
 
 </html>

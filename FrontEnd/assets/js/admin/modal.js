@@ -1,105 +1,108 @@
-// Import
-import { getWorks, getCategory } from "../base/api.js";
+// // Import
+// import { getWorks, getCategory } from "../base/api.js";
 
 // Récuperation éléments modal
-const myDeleteModal = document.getElementById("modalDeleteContainer");
-const myAddModal = document.getElementById("modalAddContainer");
+const myModal = document.querySelector(".modal");
+// const myAddModal = document.getElementById("modalAddContainer");
 const allDocBackground = document.getElementById("allDoc");
 
 // Fonction d'ouverture ou fermeture de la modal
 export async function openModal() {
-	myDeleteModal.style.display = "flex";
+	myModal.style.display = "flex";
 	allDocBackground.style.opacity = "0.5";
-	imgCollectModal;
-	myAddModal.style.display = "none";
-}
-
-export async function openAddModal() {
-	myAddModal.style.display = "flex";
-	allDocBackground.style.opacity = "0.5";
-	myDeleteModal.style.display = "none";
-	categorieSelectorModal;
 }
 
 export async function closeModal() {
-	myDeleteModal.style.display = "none";
-	myAddModal.style.display = "none";
+	myModal.style.display = "none";
 	allDocBackground.style.opacity = "1";
 }
 
-// Creation de la gallerie dans la modal
-const imgCollectModal = getWorks().then((data) => {
-	data.forEach((element) => {
-		// Créer balises pour accueillir les images du portfolio
-		const modalGallery = document.getElementById("modalGallery");
-		const myDiv = document.createElement("div");
-		const myImg = document.createElement("img");
-		const trash = document.createElement("img");
+// export async function openAddModal() {
+// 	myAddModal.style.display = "flex";
+// 	allDocBackground.style.opacity = "0.5";
+// 	myDeleteModal.style.display = "none";
+// 	categorieSelectorModal;
+// }
 
-		myImg.src = element.imageUrl;
-		myDiv.dataset.categorie = element.categoryId;
+// export async function closeModal() {
+// 	myDeleteModal.style.display = "none";
+// 	// myAddModal.style.display = "none";
+// 	allDocBackground.style.opacity = "1";
+// }
 
-		// Listener pour suppression de projet
-		trash.dataset.id = element.id;
-		trash.addEventListener("click", deleteWork);
+// // Creation de la gallerie dans la modal
+// const imgCollectModal = getWorks().then((data) => {
+// 	data.forEach((element) => {
+// 		// Créer balises pour accueillir les images du portfolio
+// 		const modalGallery = document.getElementById("modalGallery");
+// 		const myDiv = document.createElement("div");
+// 		const myImg = document.createElement("img");
+// 		const trash = document.createElement("img");
 
-		// Ajout des class et src pour les balises crée
-		trash.src = "./assets/icons/trash-can-solid.png";
-		myDiv.classList.add("work-modal");
-		myImg.classList.add("modal-img");
-		trash.classList.add("trash");
+// 		myImg.src = element.imageUrl;
+// 		myDiv.dataset.categorie = element.categoryId;
 
-		// Ajout au HTML des balises
-		modalGallery.appendChild(myDiv);
-		myDiv.appendChild(myImg);
-		myDiv.appendChild(trash);
-	});
-});
+// 		// Listener pour suppression de projet
+// 		trash.dataset.id = element.id;
+// 		trash.addEventListener("click", deleteWork);
 
-// Fonction de suppression des projets de la gellerie
-async function deleteWork(e) {
-	e.preventDefault();
+// 		// Ajout des class et src pour les balises crée
+// 		trash.src = "./assets/icons/trash-can-solid.png";
+// 		myDiv.classList.add("work-modal");
+// 		myImg.classList.add("modal-img");
+// 		trash.classList.add("trash");
 
-	await fetch(`http://localhost:5678/api/works/${e.target.dataset.id}`, {
-		method: "DELETE",
-		headers: {
-			"Content-Type": "application/json",
-			Origin: "http://localhost:5500/",
-			Authorization: `Bearer ${localStorage.token}`,
-		},
-	}).then((response) => {
-		if (response.ok) {
-			e.target.parentElement.remove();
-		} else {
-			console.error("La suppression a échoué.");
-		}
-	});
-}
+// 		// Ajout au HTML des balises
+// 		modalGallery.appendChild(myDiv);
+// 		myDiv.appendChild(myImg);
+// 		myDiv.appendChild(trash);
+// 	});
+// });
 
-// Creation des balises pour le formulaire
-const formContainer = document.querySelector("#addPhotoForm");
-const labelCategory = document.createElement("label");
-const inputCategory = document.createElement("select");
-const optionInputCategory = document.createElement("option");
+// // Fonction de suppression des projets de la gellerie
+// async function deleteWork(e) {
+// 	e.preventDefault();
 
-labelCategory.textContent = "Categorie";
+// 	await fetch(`http://localhost:5678/api/works/${e.target.dataset.id}`, {
+// 		method: "DELETE",
+// 		headers: {
+// 			"Content-Type": "application/json",
+// 			Origin: "http://localhost:5500/",
+// 			Authorization: `Bearer ${localStorage.token}`,
+// 		},
+// 	}).then((response) => {
+// 		if (response.ok) {
+// 			e.target.parentElement.remove();
+// 		} else {
+// 			console.error("La suppression a échoué.");
+// 		}
+// 	});
+// }
 
-inputCategory.classList.add("input-form");
-optionInputCategory.classList.add("option-input-category");
-labelCategory.classList.add("label-input");
+// // Creation des balises pour le formulaire
+// const formContainer = document.querySelector("#addPhotoForm");
+// const labelCategory = document.createElement("label");
+// const inputCategory = document.createElement("select");
+// const optionInputCategory = document.createElement("option");
 
-formContainer.appendChild(labelCategory);
-inputCategory.appendChild(optionInputCategory);
-formContainer.appendChild(inputCategory);
+// labelCategory.textContent = "Categorie";
 
-// Fonction de creation du selecteur de categorie dans la modal
-const categorieSelectorModal = getCategory().then((categories) => {
-	categories.forEach((category) => {
-		const option = document.createElement("option");
-		option.value = category.id;
-		option.textContent = category.name;
-		inputCategory.appendChild(option);
-	});
-});
+// inputCategory.classList.add("input-form");
+// optionInputCategory.classList.add("option-input-category");
+// labelCategory.classList.add("label-input");
 
-// test
+// formContainer.appendChild(labelCategory);
+// inputCategory.appendChild(optionInputCategory);
+// formContainer.appendChild(inputCategory);
+
+// // Fonction de creation du selecteur de categorie dans la modal
+// const categorieSelectorModal = getCategory().then((categories) => {
+// 	categories.forEach((category) => {
+// 		const option = document.createElement("option");
+// 		option.value = category.id;
+// 		option.textContent = category.name;
+// 		inputCategory.appendChild(option);
+// 	});
+// });
+
+// // test

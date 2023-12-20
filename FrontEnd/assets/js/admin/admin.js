@@ -1,15 +1,15 @@
 // Import
-import { openModal, closeModal, openAddModal } from "./modal.js";
+import { openModal, closeModal } from "./modal.js";
 
 // Récuperation d'élément
 const token = localStorage.getItem("token");
 const header = document.getElementById("adminHeader");
 const filter = document.getElementById("hideFilter");
 const myModalOpenButton = document.getElementById("adminButton");
-const myModalDeleteCloseButton = document.getElementById("crossRightDelete");
-const myModalAddCloseButton = document.getElementById("crossRightAdd");
-const modalNavbutton = document.getElementById("modalAddButton");
-const modalArrow = document.getElementById("arrowLeft");
+const myModalCloseButton = document.querySelector(".modal__close");
+// const myModalAddCloseButton = document.getElementById("crossRightAdd");
+// const modalNavbutton = document.getElementById("modalAddButton");
+// const modalArrow = document.getElementById("arrowLeft");
 
 // Mise a jour du boutton de Login en fonction du token de connection
 const isLogged = () => (token ? true : false);
@@ -46,13 +46,13 @@ window.addEventListener("load", () => {
 	updateUI();
 });
 
-// Ouverture ou fermeture de la modal
+// // Ouverture ou fermeture de la modal
 myModalOpenButton.addEventListener("click", openModal);
-myModalDeleteCloseButton.addEventListener("click", closeModal);
-myModalAddCloseButton.addEventListener("click", closeModal);
+myModalCloseButton.addEventListener("click", closeModal);
+// myModalAddCloseButton.addEventListener("click", closeModal);
 
-// Nav Modal
-modalNavbutton.addEventListener("click", openAddModal);
-modalArrow.addEventListener("click", openModal);
+// // Nav Modal
+// modalNavbutton.addEventListener("click", openAddModal);
+// modalArrow.addEventListener("click", openModal);
 
-// test
+// // test
