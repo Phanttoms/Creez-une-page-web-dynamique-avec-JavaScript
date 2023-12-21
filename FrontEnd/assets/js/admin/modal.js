@@ -70,3 +70,5 @@ const createModalArticle = (imageUrl, imageName, imageId) => {
 	});
 	return article;
 };
+
+// test
