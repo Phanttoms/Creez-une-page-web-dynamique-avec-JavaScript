@@ -100,7 +100,31 @@
 				<h3 class="modal-title">test</h3>
 			</div>
 			<div class="modal-content"></div>
-			<div class="break"></div>
+			<form class="modal-add-content">
+				<div class="modal-add-image">
+					<div class="modal-add-image-content">
+						<img class="add-img" src="./assets/icons/test-pic.png" alt="test">
+						<button class="add-img-button"> + Ajouter une photo</button>
+						<input type="file" class="add-img-input">
+						<p>jpg, png: 4mo max</p>
+					</div>
+				</div>
+				<div class="modal-add-input-box">
+					<label class="modal-input-title" for="titleInput">Titre</label>
+					<input class="modal-input" type="text" name="titre" id="titleInput">
+					<label class="modal-input-title" for="categorySearch">Catégorie</label>
+					<select class="modal-input" name="category" id="categorySearch">
+						<option value="1">Objet</option>
+						<option value="2">Appartement</option>
+						<option value="3">Hôtel & restaurant</option>
+					</select>
+				</div>
+
+				<div class="break"></div>
+				<button class="button-action modal-footer-submit">Valider</button>
+			</form>
+			<div class=" break-content break">
+			</div>
 			<div class="modal-action-buttons">
 				<div class="button-action modal-footer-gallery"><span>testbouton</span></div>
 			</div>

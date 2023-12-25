@@ -4,15 +4,19 @@ import { projectCollect } from "../base/projets.js";
 
 // Récuperation éléments modal
 const myModal = document.querySelector(".modal-container");
-const allDocBackground = document.getElementById("allDoc");
 const modalTitle = document.querySelector(".modal-title");
 const modalContent = document.querySelector(".modal-content");
 const modalFooterGallery = document.querySelector(".modal-footer-gallery");
 const gallery = document.querySelector(".gallery");
+const modalAdd = document.querySelector(".modal-add-content");
+const myModalReturnButton = document.querySelector(".modal-arrow-left");
+const breakModalContent = document.querySelector(".break-content");
 
 // Fonction d'ouverture ou fermeture de la modal
 export async function openModal() {
 	myModal.style.display = "block";
+	myModalReturnButton.style.display = "none";
+	modalAdd.style.display = "none";
 	createModalGalleryPage();
 }
 
@@ -20,7 +24,10 @@ export async function closeModal() {
 	myModal.style.display = "none";
 }
 
+// Creation Modal
 function createModalGalleryPage() {
+	modalContent.style.display = "flex";
+	breakModalContent.style.display = "block";
 	modalTitle.textContent = "Galerie photo";
 	modalContent.innerHTML = "";
 	modalFooterGallery.style.display = "flex";
@@ -72,3 +79,15 @@ const createModalArticle = (imageUrl, imageName, imageId) => {
 };
 
 // test
+export async function openModalAdd() {
+	modalContent.style.display = "none";
+	modalAdd.style.display = "flex";
+	myModalReturnButton.style.display = "block";
+	breakModalContent.style.display = "none";
+	modalFooterGallery.style.display = "none";
+	createModalAdd();
+}
+
+function createModalAdd() {
+	modalTitle.textContent = "Ajout photo";
+}

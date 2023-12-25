@@ -457,12 +457,21 @@ footer nav ul {
 .modal-nav-buttons {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
-	width: 95%;
 }
 
 .modal-nav-button {
 	cursor: pointer;
+}
+
+.modal-cross-right {
+	position: absolute;
+	right: 1rem;
+}
+
+.modal-arrow-left {
+	position: absolute;
+	left: 1rem;
+	display: none;
 }
 
 .modal-title {
@@ -473,6 +482,7 @@ footer nav ul {
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;
+	margin-top: 2rem;
 }
 
 .modal-action-buttons {
@@ -501,10 +511,7 @@ footer nav ul {
 	font-weight: 700;
 	line-height: normal;
 	cursor: pointer;
-}
-
-.modal-arrow-left {
-	visibility: hidden;
+	border: none;
 }
 
 .modal-content {
@@ -534,4 +541,93 @@ footer nav ul {
 	background-color: #000;
 	border-radius: 0.2rem;
 	cursor: pointer;
+}
+
+/* Modal add */
+.modal-add-content {
+	display: none;
+	width: 70%;
+	height: auto;
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.modal-add-image {
+	width: 100%;
+	height: 10rem;
+	border-radius: 0.1875rem;
+	background: #e8f1f6;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.modal-add-image-content {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.add-img-button {
+	width: 10.8125rem;
+	height: 2.25rem;
+	border-radius: 3.125rem;
+	background: #cbd6dc;
+	border: none;
+	color: #306685;
+	text-align: center;
+	font-family: Work Sans;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+}
+
+.add-img-input {
+	display: none;
+}
+
+.modal-add-image-content p {
+	color: #444;
+	text-align: center;
+	font-family: Work Sans;
+	font-size: 0.625rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.modal-add-input-box {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.modal-input-title {
+	color: #3d3d3d;
+	font-family: Work Sans;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	margin: 1rem 0 0.2rem 0;
+}
+
+.modal-input {
+	height: 3.1875rem;
+	border: none;
+	background: #fff;
+	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+	color: #444;
+	font-family: Work Sans;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	padding-left: 1rem;
 }
