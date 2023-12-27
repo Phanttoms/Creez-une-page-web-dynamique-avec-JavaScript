@@ -502,8 +502,8 @@ footer nav ul {
 	width: 14.8125rem;
 	height: 2.25rem;
 	border-radius: 3.75rem;
-	background: #1d6154;
 	color: #fff;
+	background: #a7a7a7;
 	text-align: center;
 	font-family: Syne;
 	font-size: 0.875rem;
@@ -512,6 +512,10 @@ footer nav ul {
 	line-height: normal;
 	cursor: pointer;
 	border: none;
+}
+
+.btn-green {
+	background: #1d6154;
 }
 
 .modal-content {
@@ -554,18 +558,16 @@ footer nav ul {
 	align-items: center;
 }
 
+.add-img-preview {
+	width: 8rem;
+	height: 10rem;
+}
+
 .modal-add-image {
 	width: 100%;
 	height: 10rem;
 	border-radius: 0.1875rem;
 	background: #e8f1f6;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.modal-add-image-content {
-	height: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -587,11 +589,15 @@ footer nav ul {
 	line-height: normal;
 }
 
+.add-img-preview {
+	display: none;
+}
+
 .add-img-input {
 	display: none;
 }
 
-.modal-add-image-content p {
+.add-img-text {
 	color: #444;
 	text-align: center;
 	font-family: Work Sans;
@@ -625,7 +631,7 @@ footer nav ul {
 	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
 	color: #444;
 	font-family: Work Sans;
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;

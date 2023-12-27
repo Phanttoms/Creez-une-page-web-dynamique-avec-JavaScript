@@ -23,12 +23,26 @@ export async function getCategory() {
 	}
 }
 
-// test
+// Fonction de delete des traveaux
 export async function deleteWork(workId) {
 	// fonction de suppression de travaux via l'id en paramètre + appel api
 	const response = await fetch(`http://localhost:5678/api/works/${workId}`, {
 		method: "DELETE",
 		headers: {
+			Authorization: `Bearer ${localStorage.getItem("token")}`,
+		},
+	});
+	return response;
+}
+
+// Fonction d'ajout de traveaux
+export async function addWork(work) {
+	// fonction d'ajout de travaux via le formulaire + appel api
+	const response = await fetch(`${urlApi}/works`, {
+		method: "POST",
+		body: work,
+		headers: {
+			Accept: "application/json",
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		},
 	});

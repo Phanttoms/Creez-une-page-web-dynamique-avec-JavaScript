@@ -40,12 +40,12 @@ async function checkAuth() {
 	}
 }
 
-// Element modal add
-const addImgButton = document.querySelector(".add-img-button");
-const addImgInput = document.querySelector(".add-img-input");
+// // Element modal add
+// const addImgButton = document.querySelector(".add-img-button");
+// const addImgInput = document.querySelector(".add-img-input");
 
-// liason bouton et input img
-addImgButton.addEventListener("click", function (event) {
-	event.preventDefault();
-	addImgInput.click();
-});
+// // liason bouton et input img
+// addImgButton.addEventListener("click", function (event) {
+// 	event.preventDefault();
+// 	addImgInput.click();
+// });
