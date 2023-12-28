@@ -519,10 +519,9 @@ footer nav ul {
 }
 
 .modal-content {
-	width: 70%;
+	width: 60%;
 	height: auto;
 	display: flex;
-	justify-content: space-between;
 	flex-wrap: wrap;
 	margin: 2rem 0 0 0;
 }
@@ -530,7 +529,8 @@ footer nav ul {
 .modal-article {
 	display: flex;
 	flex-direction: column;
-	margin-top: 0.5rem;
+	margin-top: 1.4rem;
+	margin-left: 0.7rem;
 }
 
 .modal-article-image {
