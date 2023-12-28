@@ -102,10 +102,10 @@ export async function openModalAdd() {
 	const submitBtn = document.querySelector(".submit-button");
 	submitBtn.addEventListener("click", function (event) {
 		event.preventDefault();
-		console.log("test reussi");
+		console.log("click sur le bouton submit");
 	});
 
-	// test
+	// Verification des inputs image et titre
 	const photoInput = document.querySelector(".add-img-input");
 	const titleInput = document.querySelector("#upload-title");
 	photoInput.addEventListener("change", fileDInput);
@@ -190,15 +190,18 @@ async function createDivImg() {
 
 // Fonction Title image
 async function createDivTitle() {
+	// Div titre
 	const modalTitleBox = document.createElement("div");
 	modalTitleBox.classList.add("modal-add-input-box");
 
+	// Balise Label titre
 	const modalTitleLabel = document.createElement("label");
 	modalTitleLabel.htmlFor = "add-title";
 	modalTitleLabel.classList.add("modal-input-title");
 	modalTitleLabel.textContent = "Titre";
 	modalTitleBox.appendChild(modalTitleLabel);
 
+	// Champ de text pour le titre du projet
 	const modalTitleInput = document.createElement("input");
 	modalTitleInput.type = "text";
 	modalTitleInput.id = "upload-title";
@@ -212,19 +215,27 @@ async function createDivTitle() {
 
 // Fonction Categorie image
 async function createDivCategory() {
+	// Div Categorie
 	const modalCategoryBox = document.createElement("div");
 	modalCategoryBox.classList.add("modal-add-input-box");
 
+	// Balise Label titre
 	const modalCategoryLabel = document.createElement("label");
 	modalCategoryLabel.htmlFor = "add-category";
 	modalCategoryLabel.classList.add("modal-input-title");
 	modalCategoryLabel.textContent = "Catégorie :";
 	modalCategoryBox.appendChild(modalCategoryLabel);
 
+	// Champ de selection pour la categorie du projet
 	const modalCategorySelect = document.createElement("select");
 	modalCategorySelect.id = "add-category";
 	modalCategorySelect.classList.add("modal-input");
 	modalCategorySelect.classList.add("modal-add-select");
+
+	const option0 = document.createElement("option");
+	option0.value = "0";
+	option0.textContent = "";
+	modalCategorySelect.appendChild(option0);
 
 	const option1 = document.createElement("option");
 	option1.value = "1";
@@ -307,7 +318,7 @@ async function handleFileUpload() {
 	}
 }
 
-function fileDInput(event) {
+async function fileDInput(event) {
 	//fonction de gestion de l'input file//
 	const photoPreview = document.querySelector(".add-img-preview");
 	const icon = document.querySelector(".add-img-icone");
@@ -324,8 +335,6 @@ function fileDInput(event) {
 		icon.style.display = "none";
 		overlayBtn.style.display = "none";
 		text.style.display = "none";
-		// photoPreview.removeEventListener("click", imageClick);
-		// photoPreview.addEventListener("click", imageClick);
 
 		photoPreview.addEventListener("click", function (event) {
 			event.preventDefault();
@@ -337,28 +346,27 @@ function fileDInput(event) {
 	isUploadFormValid();
 }
 
-// function imageClick() {
-// 	//fonction de gestion du click sur l'image//
-// 	const photoInput = document.querySelector(".add-img-input");
-// 	photoInput.click();
-// }
-
-function isUploadFormValid() {
+async function isUploadFormValid() {
 	//fonction de validation du formulaire//
 	const modalUploadBtn = document.querySelector(".submit-button");
-	const file = document.querySelector(".add-img-input").files[0]; //récupération du fichier//
-	const title = document.querySelector(".modal-input-title").value;
+	const file = document.querySelector(".add-img-input").files[0];
+	const title = document.querySelector(".modal-add-input").value;
 	let fileCheck = false;
 	let titleCheck = false;
 
 	modalUploadBtn.classList.remove("btn-green");
 
-	if (file !== "" && title !== "") {
+	if (file) {
 		fileCheck = true;
-		titleCheck = true;
+		console.log("test file");
 	}
 
-	if (titleCheck && fileCheck) {
+	if (title.length > 0) {
+		titleCheck = true;
+		console.log("test title");
+	}
+
+	if (fileCheck && titleCheck) {
 		modalUploadBtn.classList.add("btn-green");
 		modalUploadBtn.addEventListener("click", handleFileUpload);
 	} else {
