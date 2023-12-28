@@ -1,7 +1,6 @@
 // // Import
-import { getWorks, getCategory, deleteWork, addWork } from "../base/api.js";
+import { getWorks, deleteWork, addWork } from "../base/api.js";
 import { projectCollect } from "../base/projets.js";
-import { categorieCollect } from "../base/filter.js";
 
 // Récuperation éléments modal
 const myModal = document.querySelector(".modal-container");
@@ -44,14 +43,17 @@ function createModalGalleryPage() {
 
 const createModalArticle = (imageUrl, imageName, imageId) => {
 	// Création des articles de la modale
+	// Creation balise
 	const article = document.createElement("article");
 	const articleImage = document.createElement("img");
 	const deleteBtn = document.createElement("img");
 
+	// Ajout des class
 	article.classList.add("modal-article");
 	articleImage.classList.add("modal-article-image");
 	deleteBtn.classList.add("modal-article-button");
 
+	// Ajout attribu et liaison des balises
 	articleImage.setAttribute("src", imageUrl);
 	articleImage.setAttribute("alt", imageName);
 	articleImage.setAttribute("id", imageId);
@@ -60,6 +62,7 @@ const createModalArticle = (imageUrl, imageName, imageId) => {
 	article.appendChild(deleteBtn);
 	modalContent.appendChild(article);
 
+	// Suppression objet
 	deleteBtn.addEventListener("click", async () => {
 		try {
 			const response = await deleteWork(imageId);
@@ -67,10 +70,11 @@ const createModalArticle = (imageUrl, imageName, imageId) => {
 				createModalGalleryPage();
 				gallery.innerHTML = "";
 				projectCollect();
+				console.log("Objet supprimé.");
 			} else if (response.status === 401) {
-				console.log("nope 1");
+				console.log("Suppression non-autorisé.");
 			} else {
-				console.log("nope 2");
+				console.log("Comportement inattendu.");
 			}
 		} catch (error) {
 			console.log(error);
@@ -108,8 +112,10 @@ export async function openModalAdd() {
 	// Verification des inputs image et titre
 	const photoInput = document.querySelector(".add-img-input");
 	const titleInput = document.querySelector("#upload-title");
-	photoInput.addEventListener("change", fileDInput);
+	const category = document.querySelector(".modal-add-select");
+	photoInput.addEventListener("change", fileInput);
 	titleInput.addEventListener("input", isUploadFormValid);
+	category.addEventListener("change", isUploadFormValid);
 }
 
 // Modal Add construction
@@ -234,21 +240,25 @@ async function createDivCategory() {
 
 	const option0 = document.createElement("option");
 	option0.value = "0";
+	option0.classList.add("optionId");
 	option0.textContent = "";
 	modalCategorySelect.appendChild(option0);
 
 	const option1 = document.createElement("option");
 	option1.value = "1";
+	option1.classList.add("optionId");
 	option1.textContent = "Objet";
 	modalCategorySelect.appendChild(option1);
 
 	const option2 = document.createElement("option");
 	option2.value = "2";
+	option2.classList.add("optionId");
 	option2.textContent = "Appartements";
 	modalCategorySelect.appendChild(option2);
 
 	const option3 = document.createElement("option");
 	option3.value = "3";
+	option3.classList.add("optionId");
 	option3.textContent = "Hôtels & Restaurants";
 	modalCategorySelect.appendChild(option3);
 
@@ -257,7 +267,7 @@ async function createDivCategory() {
 	form.appendChild(modalCategoryBox);
 }
 
-// test
+// Fonction de gestion des filtres
 async function handleFileUpload() {
 	// Récupération des données du formulaire
 	const photoFile = document.querySelector(".add-img-input").files[0];
@@ -297,28 +307,28 @@ async function handleFileUpload() {
 			});
 
 			// Affichage de la notification de succès
-			// notificationTypo("Travail ajouté avec succès!!", "positive");
+			alert("Travail ajouté avec succès!!");
 		} else if (response.status === 400) {
-			// notificationTypo(`Error`, "negative");
-			console.log("non1");
+			// Cas d'echec
+			alert("Mauvaise requete");
+			console.log("Mauvaise requête.");
 		} else if (response.status === 401) {
-			// notificationTypo(
-			// 	`Vous n'êtes pas autorisé à ajouter une photo`,
-			// 	"negative"
-			// );
-			console.log("non2");
+			// Cas d'echec
+			alert("Vous n'êtes pas autorisé à ajouter une photo.");
+			console.log("Non-autorisé");
 		} else {
-			// notificationTypo(`Erreur lors de l'ajout`, "negative");
-			console.log("non3");
+			// Cas d'echec
+			alert("Erreur lors de l'ajout.");
+			console.log("Erreur inatendu.");
 		}
 	} catch (error) {
 		// Gestion des erreurs
-		// notificationTypo(error, "negative");
-		console.log("fail");
+		console.log("Impossible de joindre le serveur.");
 	}
 }
 
-async function fileDInput(event) {
+// Input image + preview
+async function fileInput(event) {
 	//fonction de gestion de l'input file//
 	const photoPreview = document.querySelector(".add-img-preview");
 	const icon = document.querySelector(".add-img-icone");
@@ -351,22 +361,30 @@ async function isUploadFormValid() {
 	const modalUploadBtn = document.querySelector(".submit-button");
 	const file = document.querySelector(".add-img-input").files[0];
 	const title = document.querySelector(".modal-add-input").value;
+	const category = document.querySelector(".modal-add-select").value;
+	let categoryCheck = false;
 	let fileCheck = false;
 	let titleCheck = false;
 
 	modalUploadBtn.classList.remove("btn-green");
 
+	// Test Photo
 	if (file) {
 		fileCheck = true;
-		console.log("test file");
 	}
 
+	// Test Titre
 	if (title.length > 0) {
 		titleCheck = true;
-		console.log("test title");
 	}
 
-	if (fileCheck && titleCheck) {
+	// Test Categorie
+	if (category * 1 > 0) {
+		categoryCheck = true;
+	}
+
+	// Test des 3 champs
+	if (fileCheck && titleCheck && categoryCheck) {
 		modalUploadBtn.classList.add("btn-green");
 		modalUploadBtn.addEventListener("click", handleFileUpload);
 	} else {

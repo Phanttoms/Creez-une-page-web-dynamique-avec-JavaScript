@@ -2,7 +2,7 @@
 import { openModal, closeModal, openModalAdd } from "./modal.js";
 
 // Récuperation d'élément
-const token = localStorage.getItem("token");
+const token = sessionStorage.getItem("token");
 const header = document.getElementById("adminHeader");
 const filter = document.getElementById("hideFilter");
 const myModalOpenButton = document.getElementById("adminButton");
@@ -34,18 +34,8 @@ async function checkAuth() {
 		loginLink.textContent = "logout";
 		loginLink.href = "#";
 		loginLink.addEventListener("click", () => {
-			localStorage.clear("token");
+			sessionStorage.clear("token");
 			window.location.reload();
 		});
 	}
 }
-
-// // Element modal add
-// const addImgButton = document.querySelector(".add-img-button");
-// const addImgInput = document.querySelector(".add-img-input");
-
-// // liason bouton et input img
-// addImgButton.addEventListener("click", function (event) {
-// 	event.preventDefault();
-// 	addImgInput.click();
-// });

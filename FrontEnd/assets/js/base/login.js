@@ -34,7 +34,7 @@ async function login(email, password) {
 			if (response.status === 200) {
 				const data = await response.json();
 				const token = data.token;
-				localStorage.setItem("token", token);
+				sessionStorage.setItem("token", token);
 				window.location.href = "./index.html";
 			} else {
 				errorMessage.textContent =
