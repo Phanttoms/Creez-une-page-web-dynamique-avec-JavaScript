@@ -29,7 +29,7 @@ export async function deleteWork(workId) {
 	const response = await fetch(`http://localhost:5678/api/works/${workId}`, {
 		method: "DELETE",
 		headers: {
-			Authorization: `Bearer ${localStorage.getItem("token")}`,
+			Authorization: `Bearer ${sessionStorage.getItem("token")}`,
 		},
 	});
 	return response;
@@ -43,7 +43,7 @@ export async function addWork(work) {
 		body: work,
 		headers: {
 			Accept: "application/json",
-			Authorization: `Bearer ${localStorage.getItem("token")}`,
+			Authorization: `Bearer ${sessionStorage.getItem("token")}`,
 		},
 	});
 	return response;

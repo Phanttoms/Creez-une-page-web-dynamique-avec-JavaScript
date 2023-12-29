@@ -637,3 +637,8 @@ footer nav ul {
 	line-height: normal;
 	padding-left: 1rem;
 }
+
+select,
+option {
+	font-family: Work Sans, sans-serif;
+}

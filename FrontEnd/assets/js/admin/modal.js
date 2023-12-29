@@ -240,25 +240,21 @@ async function createDivCategory() {
 
 	const option0 = document.createElement("option");
 	option0.value = "0";
-	option0.classList.add("optionId");
 	option0.textContent = "";
 	modalCategorySelect.appendChild(option0);
 
 	const option1 = document.createElement("option");
 	option1.value = "1";
-	option1.classList.add("optionId");
 	option1.textContent = "Objet";
 	modalCategorySelect.appendChild(option1);
 
 	const option2 = document.createElement("option");
 	option2.value = "2";
-	option2.classList.add("optionId");
 	option2.textContent = "Appartements";
 	modalCategorySelect.appendChild(option2);
 
 	const option3 = document.createElement("option");
 	option3.value = "3";
-	option3.classList.add("optionId");
 	option3.textContent = "Hôtels & Restaurants";
 	modalCategorySelect.appendChild(option3);
 
@@ -288,11 +284,6 @@ async function handleFileUpload() {
 			// Traitement de la réponse en cas de succès
 			const work = await response.json();
 			let category = { id: parseInt(work.categoryId) };
-
-			// Détermination du nom de la catégorie en fonction de l'ID
-			if (work.categoryId === "1") category.name = "Objets";
-			if (work.categoryId === "2") category.name = "Appartements";
-			if (work.categoryId === "3") category.name = "Hôtels & restaurants";
 
 			work.category = category;
 
