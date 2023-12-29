@@ -1,5 +1,6 @@
 // Import
-import { openModal, closeModal, openModalAdd } from "./modal.js";
+import { openModal, closeModal } from "./modal.js";
+import { openModalAdd } from "./modalupload.js";
 
 // Récuperation d'élément
 const token = sessionStorage.getItem("token");
